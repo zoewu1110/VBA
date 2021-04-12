@@ -1,0 +1,50 @@
+Attribute VB_Name = "Module1"
+Option Explicit
+
+Sub selectNewCal()
+
+Select Case Range("A2").Value
+
+Case "日本腦炎"
+Range("B2").Value = "日本"
+
+Case "德國麻疹"
+Range("B2").Value = "德國"
+
+Case "非洲豬瘟"
+Range("B2").Value = "非洲"
+
+End Select '記得要打
+End Sub
+Sub ifCal()
+
+If (Range("B1").Value > 38) Then '條件用括號刮起來
+    Range("B2").Value = "有症狀"
+Else '也可以用Else If
+    Range("B2").Value = "無症狀"
+    
+End If '記得要打
+End Sub
+Sub ifDemo()
+
+Dim i, s As Integer
+s = 0
+For i = 1 To 10
+    s = s + i
+    MsgBox (s)
+    If (i >= 4) Then
+        Exit For
+        
+End If
+Next
+End Sub
+Sub ifDemo2()
+Dim rowNum As Integer
+For rowNum = 2 To 100
+    Cells(rowNum, 4).Value = Cells(rowNum, 2).Value * Cells(rowNum, 3).Value
+    If (rowNum > 100) Then
+        Exit For
+End If
+Next
+End Sub
+
