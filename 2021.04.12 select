@@ -1,0 +1,58 @@
+Attribute VB_Name = "Module1"
+Option Explicit
+
+Sub selectDemo()
+Dim i As Integer
+
+MsgBox (TypeName(InputBox("請輸入名次"))) '檢查MsgBox的類型
+
+i = CInt(InputBox("請輸入名次")) '檢查知道為String，強轉成Int
+
+Select Case i '利用i回傳的值給予回傳對應的結果
+Case 1
+    MsgBox ("冠軍")
+Case 2
+    MsgBox ("亞軍")
+Case 3
+    MsgBox ("季軍")
+End Select
+
+End Sub
+
+Sub selectDemo2()
+Dim i As Integer
+Dim tName As Variant
+
+tName = TypeName(InputBox("請輸入名次"))
+MsgBox (tName)
+i = CInt(InputBox("請輸入名次"))
+
+Select Case i
+Case 1
+    MsgBox ("冠軍")
+Case 2
+    MsgBox ("亞軍")
+Case 3
+    MsgBox ("季軍")
+Case 4
+    MsgBox ("殿軍")
+End Select
+
+End Sub
+Sub selectDemo3()
+
+Dim i As Integer
+i = CInt(InputBox("請輸入名次"))
+
+Select Case i
+Case 1
+    MsgBox ("冠軍")
+Case 2
+    MsgBox ("亞軍")
+Case 3
+    MsgBox ("季軍")
+Case 4
+    MsgBox ("殿軍")
+End Select
+Cells(1, 1).Value = i
+End Sub
