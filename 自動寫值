@@ -1,0 +1,30 @@
+Option Explicit
+
+Private Sub CB_Click()
+
+Dim supplyName As String
+supplyName = txbName.Text
+Cells(2, 1).Value = supplyName
+
+Dim supplyPhone As String
+supplyPhone = txbPhone.Text
+Cells(2, 2).Value = supplyPhone
+
+Dim price As Integer
+price = txbPrice.Text
+Cells(2, 3).Value = CInt(price)
+
+Dim newPrice As Integer
+newPrice = txbFinalPrice.Text
+Cells(2, 4).Value = CInt(newPrice)
+
+Dim totalDiscount As Single
+totalDiscount = (price - newPrice) / price
+Cells(2, 5).Value = totalDiscount
+
+If (totalDiscount > 0.8) Then
+    Cells(2, 6).Value = "異常"
+Else
+    Cells(2, 6).Value = "正常"
+End If
+End Sub
