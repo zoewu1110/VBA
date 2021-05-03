@@ -1,0 +1,23 @@
+Private Sub cb1_Click()
+
+Dim name As String
+name = Cells(2, 1).Value
+lbNameRes.Caption = name
+
+Dim phone As String
+phone = Cells(2, 2).Value
+lbPhoneRes.Caption = phone
+
+Dim price As Integer
+price = Cells(2, 3).Value
+lbPriceRes.Caption = CInt(price)
+
+Dim newPrice As Integer
+newPrice = Cells(2, 4).Value
+lbFinalPrice.Caption = CInt(newPrice)
+
+Dim total As Single
+total = (price - newPrice) / price
+MsgBox "議價率" & total
+
+End Sub
