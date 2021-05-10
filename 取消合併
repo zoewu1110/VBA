@@ -1,0 +1,21 @@
+
+Sub can2()
+Dim a As Integer
+For a = 1 To Sheets.Count '從第一
+Sheets(a).Activate '啟動
+
+'剛剛取消合併單張表的CODE
+Dim rowCnt, merRow As Long '變數宣告
+Dim my As Range '宣告範圍變數
+rowCnt = Sheets(1).UsedRange.Rows.Count 'rowCnt=列數
+For Each my In Range(Cells(2, "A"), Cells(rowCnt, "A")) '從A2到A欄最後一列，逐步執行
+    my.Select '選取範圍
+    merRow = my.MergeArea.Count '合併範圍列數(例如三列合併，兩列合併)
+    'MsgBox "目前是" & merRow & "列合併"
+    my.UnMerge '取消合併
+    my.Resize(merRow, 1) = my '補回原值
+Next
+Sheets(a).Range("A1").CurrentRegion.Borders.LineStyle = xlContinuous '給予框線
+'End of 剛剛取消合併單張表的CODE
+Next
+End Sub
